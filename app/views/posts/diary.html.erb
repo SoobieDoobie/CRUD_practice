@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="row">
+    <div class="navbar navbar-inverse">
+      <div class="navbar-header">
+          <a class="navbar-brand" href="/index">Soobin's Vault</a>
+      </div>
+      <div class="navbar-collapse collapse navbar-inverse-collapse">
+          <ul class="nav navbar-nav">
+              <li class="active">
+                  <a href="/diary">Diary</a>
+              </li>
+              <li>
+                  <a href="">ToDo</a>
+              </li>
+              <li>
+                  <a href="">Photos</a>
+              </li>
+          </ul>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <br>
+    <h1 style="line-height:0;">Diary & Notes</h1><hr>
+    <button type="button" class="btn btn-default"><a href="/new" style="text-decoration: none; color: inherit;">New Post</a></button><br><br>
+    
+    <% @posts.each do |post| %>
+      <div class="well">
+         <button type="button" class="btn btn-danger" style="float: right;"><a href="/posts/<%= post.id %>/delete" style="text-decoration: none; color: inherit;">Delete Post</a></button>
+        <button type="button" class="btn btn-default" style="float: right;"><a href="/posts/<%= post.id %>/edit" style="text-decoration: none; color: inherit;">Edit Post</a></button>
+        <h3><%= post.title %></h3>
+        <pre><%= post.content %></pre>
+        <b><%= post.username %></b> posted <b><%= time_ago_in_words(post.created_at) + 'ago' %></b><hr>
+        
+        <% post.comments.each do |comment| %>
+          ><%= comment.content %>---<a href="/comments/<%= comment.id %>/delete">[X]</a><br>
+        <% end %>
+        <form action="/posts/<%= post.id %>/comments" method="POST">
+          <input type="text" class="form-control" id="inputDefault" placeholder="comment" name="content">
+          <button type="submit" class="btn btn-primary">New Comment</button>
+        </form>
+      </div>
+    <% end %>
+  </div>
+</div>
