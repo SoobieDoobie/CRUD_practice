@@ -28,11 +28,8 @@
         <input type="text" name="title" class="form-control" id="inputTitle" value="<%= @posts.title %>">
         </div>
         
-        <div class="form-group">
-        <input type="text" name="username" class="form-control" id="inputUsername" value="<%= @posts.username %>">
-        </div>
         
-        <textarea class="form-control" name="content" rows="5" placeholder="Content"><%= @posts.content %></textarea><br>
+        <textarea class="form-control" name="content" rows="5"><%= @posts.content %></textarea><br>
         <button type="submit" class="btn btn-default">Submit</button>
     </form>
   </div>

@@ -20,5 +20,12 @@
     </div>
   </div>
   <div class="row">
+    <% if user_signed_in? %>
+      <button type="button" class="btn btn-default" style="float: right;"><a href="/users/sign_out" style="text-decoration: none; color: inherit;">Logout</a></button>
+      <span style="float: right;">welcome <%= current_user.email.split('@').first %>!&nbsp</span>
+    <% else %>
+      <button type="button" class="btn btn-default" style="float: right;"><a href="/users/sign_up" style="text-decoration: none; color: inherit;">Register</a></button>
+      <button type="button" class="btn btn-default" style="float: right;"><a href="/users/sign_in" style="text-decoration: none; color: inherit;">Login</a></button><br><br>
+    <% end %>
     <img src="/images/vault2.png" width="100%" height="100%" />
   </div>  

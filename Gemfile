@@ -1,5 +1,10 @@
 source 'https://rubygems.org'
 
+gem 'devise'
+gem 'carrierwave'
+gem "fog-aws"
+gem "mini_magick"
+gem "figaro"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'

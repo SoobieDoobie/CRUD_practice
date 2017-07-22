@@ -1,0 +1,7 @@
+<% if @messages %>
+    <!--alert('<%= @messages %>');-->
+    swal("<%= @messages %>");
+    swal("Sorry!", "<%= @messages %>", "error")
+<% else %>
+    window.location.href = 'http://soobinvault-soobin.c9users.io/diary';
+<% end %>

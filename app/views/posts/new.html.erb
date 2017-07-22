@@ -20,7 +20,13 @@
     </div>
   </div>
   <div class="row">
-    <form action="/posts" method="POST">
+    
+    <% if flash[:error] %>
+      <%= flash[:error] %>
+    <% end %>
+    
+    <!--<form action="/posts" method="POST" enctype="multipart/form-data">-->
+    <%= form_tag('/posts', method: :post, remote: true) do %>
       <br>
       <h1 style="line-height: 0;">New Post</h1><hr>
       
@@ -28,12 +34,16 @@
         <input type="text" name="title" class="form-control" id="inputTitle" placeholder="Title">
         </div>
         
-        <div class="form-group">
-        <input type="text" name="username" class="form-control" id="inputUsername" placeholder="Username">
-        </div>
+        
         
         <textarea class="form-control" name="content" rows="5" placeholder="Content"></textarea><br>
+        <div class="form-group">
+          <label for="exampleInputFile">File input</label>
+          <input type="file" id="exampleInputFile" name="image_file">
+        </div>
         <button type="submit" class="btn btn-default">Submit</button>
-    </form>
+    <% end %>
+    <!--</form>-->
+
   </div>
 </div>

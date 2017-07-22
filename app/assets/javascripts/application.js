@@ -15,4 +15,5 @@
 //= require turbolinks
 //= require bootstrap
 //= require bootstrap.min
+//= require sweetalert.min
 //= require_tree .

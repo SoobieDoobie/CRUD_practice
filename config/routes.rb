@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
   
+  devise_for :users
   root 'home#index'
   
   get '/index' => 'home#index'
   get '/diary' => 'posts#diary'
   get '/new' => 'posts#new'
   get '/posts/:post_id/delete' => 'posts#delete'
-  get '/posts/:post_id/edit' => 'posts#edit'
+  get '/posts/:post_ipd/edit' => 'posts#edit'
   get '/comments/:id/delete' => 'comments#delete'
   
   
